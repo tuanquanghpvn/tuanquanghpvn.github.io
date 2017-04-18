@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Thu Ngân Tính Toán</title>
+        <meta charset="utf-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Số lượng</th>
+                    <th>Loại tiền</th>
+                    <th>Thành tiền (VNĐ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="number" name="fiveHundred" />
+                    </td>
+                    <td>500.000</td>
+                    <td><label id="lbl-fiveHundred">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="twoHundred" />
+                    </td>
+                    <td>200.000</td>
+                    <td><label id="lbl-twoHundred">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="oneHundred" />
+                    </td>
+                    <td>100.000</td>
+                    <td><label id="lbl-oneHundred">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="fifty" />
+                    </td>
+                    <td>50.000</td>
+                    <td><label id="lbl-fifty">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="twenty" />
+                    </td>
+                    <td>20.000</td>
+                    <td><label id="lbl-twenty">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="ten" />
+                    </td>
+                    <td>10.000</td>
+                    <td><label id="lbl-ten">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="five" />
+                    </td>
+                    <td>5.000</td>
+                    <td><label id="lbl-five">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="two" />
+                    </td>
+                    <td>2.000</td>
+                    <td><label id="lbl-two">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="one" />
+                    </td>
+                    <td>1.000</td>
+                    <td><label id="lbl-one">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" name="half" />
+                    </td>
+                    <td>500</td>
+                    <td><label id="lbl-half">0</label></td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <b>Số trên báo cáo kết ca</b>
+                    </td>
+                    <td>
+                        <td><b><label id="lblNumberPCCaculator">0</label></b></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <b>Số trên báo cáo viết tay</b>
+                    </td>
+                    <td>
+                        <td><label></label></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <b>Số nộp thực tế</b>
+                    </td>
+                    <td>
+                        <td><b><label id="lblNumberCashierCaculator">0</label></b></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <b>Chênh lệch (Thừa / Thiếu)</b>
+                    </td>
+                    <td>
+                        <td><b><label id="lblNumberDifferentCaculator">0</label></b></td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+
+    <script type="text/javascript">
+        $(function() {
+            $('input').on('change', function(e) {
+                nameInput = $(this).attr("name");
+                nameLabel = "#lbl-" + nameInput;
+                number = $(this).val();
+                money = calMoney(number, nameInput);
+                $(nameLabel).text(money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            });
+
+            function calMoney(current, moneyType) {
+                var myMoney = 0;
+                switch (moneyType) {
+                    case "fiveHundred":
+                        myMoney = current * 500000
+                        break;
+                    case "twoHundred":
+                        myMoney = current * 200000
+                        break;
+                    case "oneHundred":
+                        myMoney = current * 100000
+                        break;
+                    case "fifty":
+                        myMoney = current * 50000
+                        break;
+                    case "twenty":
+                        myMoney = current * 20000
+                        break;
+                    case "ten":
+                        myMoney = current * 10000
+                        break;
+                    case "five":
+                        myMoney = current * 5000
+                        break;
+                    case "two":
+                        myMoney = current * 2000
+                        break;
+                    case "one":
+                        myMoney = current * 1000
+                        break;
+                    case "half":
+                        myMoney = current * 500
+                        break;
+                    default:
+                        break;
+                }
+                return myMoney;
+            }
+        });
+    </script>
+</html>
