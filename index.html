@@ -13,137 +13,217 @@
     </head>
 
     <body>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Số lượng</th>
-                    <th>Loại tiền</th>
-                    <th>Thành tiền (VNĐ)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="number" name="fiveHundred" />
-                    </td>
-                    <td>500.000</td>
-                    <td><label id="lbl-fiveHundred">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="twoHundred" />
-                    </td>
-                    <td>200.000</td>
-                    <td><label id="lbl-twoHundred">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="oneHundred" />
-                    </td>
-                    <td>100.000</td>
-                    <td><label id="lbl-oneHundred">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="fifty" />
-                    </td>
-                    <td>50.000</td>
-                    <td><label id="lbl-fifty">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="twenty" />
-                    </td>
-                    <td>20.000</td>
-                    <td><label id="lbl-twenty">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="ten" />
-                    </td>
-                    <td>10.000</td>
-                    <td><label id="lbl-ten">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="five" />
-                    </td>
-                    <td>5.000</td>
-                    <td><label id="lbl-five">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="two" />
-                    </td>
-                    <td>2.000</td>
-                    <td><label id="lbl-two">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="one" />
-                    </td>
-                    <td>1.000</td>
-                    <td><label id="lbl-one">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="half" />
-                    </td>
-                    <td>500</td>
-                    <td><label id="lbl-half">0</label></td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <b>Tổng tiền</b>
-                    </td>
-                    <td>
-                        <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <b>Số trên báo cáo kết ca</b>
-                    </td>
-                    <td>
-                        <td><b><label id="lblNumberPCCaculator">0</label></b></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <b>Số trên báo cáo viết tay</b>
-                    </td>
-                    <td>
-                        <td><label></label></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <b>Số nộp thực tế</b>
-                    </td>
-                    <td>
-                        <td><b><label id="lblNumberCashierCaculator">0</label></b></td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <b>Chênh lệch (Thừa / Thiếu)</b>
-                    </td>
-                    <td>
-                        <td><b><label id="lblNumberDifferentCaculator">0</label></b></td>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Phiếu mua hàng</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Số lượng</th>
+                                <th>Loại tiền</th>
+                                <th width="200px">Thành tiền (VND)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="number" name="pmh-number-1" />
+                                </td>
+                                <td>
+                                    <input type="number" name="pmh-type-1" />
+                                </td>
+                                <td><label id="pmh-1">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Tổng tiền</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-lg-6">
+                    <h4>Cà thẻ</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Số lượng</th>
+                                <th>Loại tiền</th>
+                                <th width="200px">Thành tiền (VND)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="number" name="pmh-number-1" />
+                                </td>
+                                <td>
+                                    <input type="number" name="pmh-type-1" />
+                                </td>
+                                <td><label id="pmh-1">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Tổng tiền</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Tiền Việt Nam</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Số lượng</th>
+                                <th>Loại tiền</th>
+                                <th>Thành tiền (VND)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="number" name="fiveHundred" />
+                                </td>
+                                <td>500.000</td>
+                                <td><label id="lbl-fiveHundred">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="twoHundred" />
+                                </td>
+                                <td>200.000</td>
+                                <td><label id="lbl-twoHundred">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="oneHundred" />
+                                </td>
+                                <td>100.000</td>
+                                <td><label id="lbl-oneHundred">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="fifty" />
+                                </td>
+                                <td>50.000</td>
+                                <td><label id="lbl-fifty">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="twenty" />
+                                </td>
+                                <td>20.000</td>
+                                <td><label id="lbl-twenty">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="ten" />
+                                </td>
+                                <td>10.000</td>
+                                <td><label id="lbl-ten">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="five" />
+                                </td>
+                                <td>5.000</td>
+                                <td><label id="lbl-five">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="two" />
+                                </td>
+                                <td>2.000</td>
+                                <td><label id="lbl-two">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="one" />
+                                </td>
+                                <td>1.000</td>
+                                <td><label id="lbl-one">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="half" />
+                                </td>
+                                <td>500</td>
+                                <td><label id="lbl-half">0</label></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Tổng tiền</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Số trên báo cáo kết ca</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblNumberPCCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Số trên báo cáo viết tay</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><label></label></td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Số nộp thực tế</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblNumberCashierCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Chênh lệch (Thừa / Thiếu)</b>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <td><b><label id="lblNumberDifferentCaculator">0</label></b></td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-lg-6">
+                </div>
+            </div>
+        </div>
     </body>
 
     <script type="text/javascript">
