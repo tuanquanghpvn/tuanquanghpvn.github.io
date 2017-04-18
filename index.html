@@ -96,6 +96,16 @@
                     <td>
                     </td>
                     <td>
+                        <b>Tổng tiền</b>
+                    </td>
+                    <td>
+                        <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
                         <b>Số trên báo cáo kết ca</b>
                     </td>
                     <td>
@@ -144,6 +154,14 @@
                 number = $(this).val();
                 money = calMoney(number, nameInput);
                 $(nameLabel).text(money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                // Sum Total
+                var totalMoney = 0;
+                $("label[id^='lbl-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                    $('#lblTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                });
             });
 
             function calMoney(current, moneyType) {
