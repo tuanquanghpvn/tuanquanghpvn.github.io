@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h4>Phiếu mua hàng</h4>
-                    <table class="table">
+                    <table class="table" id="pmhTable">
                         <thead>
                             <tr>
                                 <th>Số lượng</th>
@@ -35,59 +35,59 @@
                                 </td>
                                 <td><label id="pmh-1">0</label></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <b>Tổng tiền</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <label>Tổng tiền: </label> <b><label id="pmhTotal">0</label></b>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <button class="btn btn-xs btn-success" id="btn-addMorePMH" style="float: right;">+</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-lg-6">
                     <h4>Cà thẻ</h4>
-                    <table class="table">
+                    <table class="table" id="ctTable">
                         <thead>
                             <tr>
                                 <th>Số lượng</th>
-                                <th>Loại tiền</th>
-                                <th width="200px">Thành tiền (VND)</th>
+                                <th>Thành tiền (VND)</th>
+                                <th>Ngân hàng</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <input type="number" name="pmh-number-1" />
+                                    <input type="number" name="ct-number-1" />
                                 </td>
                                 <td>
-                                    <input type="number" name="pmh-type-1" />
-                                </td>
-                                <td><label id="pmh-1">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Tổng tiền</b>
+                                    <input type="number" name="ct-money-1" />
                                 </td>
                                 <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
+                                    <input type="number" name="ct-nh-1" />
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <label>Tổng tiền: </label> <b><label id="ctTotal">0</label></b>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <button id="btn-addMoreCT" class="btn btn-xs btn-success" style="float: right;">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-6">
                     <h4>Tiền Việt Nam</h4>
-                    <table class="table">
+                    <table class="table" id="tmTable">
                         <thead>
                             <tr>
                                 <th>Số lượng</th>
@@ -228,7 +228,8 @@
 
     <script type="text/javascript">
         $(function() {
-            $('input').on('change', function(e) {
+            // Tiền mặt
+            $('#tmTable :input').on('focusout', function(e) {
                 nameInput = $(this).attr("name");
                 nameLabel = "#lbl-" + nameInput;
                 number = $(this).val();
@@ -287,6 +288,72 @@
                 }
                 return myMoney;
             }
+
+            $('#btn-addMorePMH').on('click', function(e) {
+                var rowCount = $('#pmhTable > tbody > tr').length + 1;
+                $('#pmhTable > tbody:last-child').append(
+                    '<tr>'
+                        + '<td>'
+                            + '<input type="number" name="pmh-number-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="pmh-type-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td><label id="pmh-' + rowCount + '">0</label></td>'
+                    + '</tr>'
+                );
+            });
+
+            $('#btn-addMoreCT').on('click', function(e) {
+                var rowCount = $('#ctTable > tbody > tr').length + 1;
+                $('#ctTable > tbody:last-child').append(
+                    '<tr>'
+                        + '<td>'
+                            + '<input type="number" name="ct-number-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="ct-money-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="ct-nh-' + rowCount + '"  />'
+                        + '</td>'
+                    + '</tr>'
+                );
+            });
+
+            // Phiếu mua hàng
+            $("#pmhTable").on('focusout', 'input', function() {
+                name1 = $(this).attr("name");
+                val1 = $(this).val();
+                if (name1.split('-')[1] == 'number') {
+                    name2 = "pmh-type-" + name1.split('-')[2];
+                    val2 = $('input[name=' + name2 + ']').val();
+                } else {
+                    name2 = "pmh-number-" + name1.split('-')[2];
+                    val2 = $('input[name=' + name2 + ']').val();
+                }
+                va = val1 * val2;
+                $('#pmh-' + name1.split('-')[2]).text(va.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                // Tổng tiền
+                var totalMoney = 0;
+                $("label[id^='pmh-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                $('#pmhTotal').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            });
+
+            // Cà thẻ
+            $("#ctTable").on('focusout', 'input[name^="ct-money-"]', function() {
+                var totalMoney = 0;
+                $("input[name^='ct-money-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).val();
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                console.log(totalMoney);
+                $('#ctTotal').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            });
         });
     </script>
 </html>
