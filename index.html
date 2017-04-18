@@ -160,8 +160,13 @@
                 $("label[id^='lbl-']").each(function( index ) {
                     currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
                     totalMoney += parseInt(currentMoneyBeforeFormat);
-                    $('#lblTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                 });
+                $('#lblTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                $('#lblNumberCashierCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                // Chênh lệch
+                numberPCCaculator = parseInt($('#lblNumberPCCaculator').text().replace(/\,/g, ''));
+                different = totalMoney - numberPCCaculator
+                $('#lblNumberDifferentCaculator').text(different.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
             });
 
             function calMoney(current, moneyType) {
