@@ -13,214 +13,374 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h4>Phiếu mua hàng</h4>
-                    <table class="table" id="pmhTable">
-                        <thead>
-                            <tr>
-                                <th>Số lượng</th>
-                                <th>Loại tiền</th>
-                                <th width="200px">Thành tiền (VND)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="number" name="pmh-number-1" />
-                                </td>
-                                <td>
-                                    <input type="number" name="pmh-type-1" />
-                                </td>
-                                <td><label id="pmh-1">0</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div id="exTab1" class="container">
+            <ul  class="nav nav-pills">
+                <li class="active">
+                    <a  href="#1a" data-toggle="tab">Báo cáo</a>
+                </li>
+                <li><a href="#2a" data-toggle="tab">Bản kê tiền</a>
+                </li>
+            </ul>
+
+            <hr>
+            <br>
+
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1a">
                     <div class="row">
-                        <div class="col-lg-9">
-                            <label>Tổng tiền: </label> <b><label id="pmhTotal">0</label></b>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 class="text-danger">Phiếu mua hàng</h4>
+                                <table class="table" id="pmhTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Số lượng</th>
+                                            <th>Loại tiền</th>
+                                            <th width="200px">Thành tiền (VND)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="pmh-number-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="pmh-type-1" />
+                                            </td>
+                                            <td><label id="pmh-1">0</label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <label>Tổng tiền: </label> <b><label id="pmhTotal">0</label></b>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn btn-xs btn-success" id="btn-addMorePMH" style="float: right;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4 class="text-danger">Cà thẻ</h4>
+                                <table class="table" id="ctTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền (VND)</th>
+                                            <th>Ngân hàng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="ct-number-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="ct-money-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="ct-nh-1" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <label>Tổng tiền: </label> <b><label id="ctTotal">0</label></b>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button id="btn-addMoreCT" class="btn btn-xs btn-success" style="float: right;">+</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-lg-3">
-                            <button class="btn btn-xs btn-success" id="btn-addMorePMH" style="float: right;">+</button>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h4 class="text-danger">Tiền Việt Nam</h4>
+
+                                <table class="table" id="tmTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Số lượng</th>
+                                            <th>Loại tiền</th>
+                                            <th>Thành tiền (VND)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="fiveHundred" />
+                                            </td>
+                                            <td>500.000</td>
+                                            <td><label id="lbl-fiveHundred">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="twoHundred" />
+                                            </td>
+                                            <td>200.000</td>
+                                            <td><label id="lbl-twoHundred">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="oneHundred" />
+                                            </td>
+                                            <td>100.000</td>
+                                            <td><label id="lbl-oneHundred">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="fifty" />
+                                            </td>
+                                            <td>50.000</td>
+                                            <td><label id="lbl-fifty">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="twenty" />
+                                            </td>
+                                            <td>20.000</td>
+                                            <td><label id="lbl-twenty">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="ten" />
+                                            </td>
+                                            <td>10.000</td>
+                                            <td><label id="lbl-ten">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="five" />
+                                            </td>
+                                            <td>5.000</td>
+                                            <td><label id="lbl-five">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="two" />
+                                            </td>
+                                            <td>2.000</td>
+                                            <td><label id="lbl-two">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="one" />
+                                            </td>
+                                            <td>1.000</td>
+                                            <td><label id="lbl-one">0</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="half" />
+                                            </td>
+                                            <td>500</td>
+                                            <td><label id="lbl-half">0</label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="">
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <b>Tổng tiền</b>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <b><label id="lblTotalNumberPCCaculator">0</label></b>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <b>Số trên báo cáo kết ca</b>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <b><label id="lblNumberPCCaculator">0</label></b>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <b>Số nộp thực tế</b>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <b><label id="lblNumberCashierCaculator">0</label></b>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <b>Chênh lệch (Thừa / Thiếu)</b>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <b><label class="text-danger" id="lblNumberDifferentCaculator">0</label></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8">
+                                <h4 class="text-danger">Tiền Việt Nam</h4>
+
+                                <table class="table" id="dsctTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Số seri giấy</th>
+                                            <th>Số chứng từ</th>
+                                            <th>Số tiền chứng từ</th>
+                                            <th>Phiếu thu/chi</th>
+                                            <th>Chứng từ PT+PC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="number" name="seri-giay-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="so-chung-tu-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="so-tien-chung-tu-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="phieu-thu-chi-1" />
+                                            </td>
+                                            <td>
+                                                <input type="number" name="chung-tu-pt-pc-1" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <button id="btn-addMoreDSCT" class="btn btn-xs btn-success" style="float: left;">+</button>
+                                    </div>
+
+                                    <div class="col-lg-9">
+                                        <div class="col-lg-6">
+                                            <label>Tổng tiền chứng từ: </label> <b><label id="dsctTotalChungTu">0</label></b>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label>Tổng tiền thu/chi: </label> <b><label id="dsctTotalThuChi">0</label></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6">
-                    <h4>Cà thẻ</h4>
-                    <table class="table" id="ctTable">
-                        <thead>
-                            <tr>
-                                <th>Số lượng</th>
-                                <th>Thành tiền (VND)</th>
-                                <th>Ngân hàng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="number" name="ct-number-1" />
-                                </td>
-                                <td>
-                                    <input type="number" name="ct-money-1" />
-                                </td>
-                                <td>
-                                    <input type="number" name="ct-nh-1" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tab-pane" id="2a">
                     <div class="row">
-                        <div class="col-lg-9">
-                            <label>Tổng tiền: </label> <b><label id="ctTotal">0</label></b>
-                        </div>
+                        <h4 class="text-danger">Tiền Việt Nam: <input type="number" name="bktKhachDua" id="bktKhachDua" /></h4>
 
-                        <div class="col-lg-3">
-                            <button id="btn-addMoreCT" class="btn btn-xs btn-success" style="float: right;">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <table class="table" id="bktTable">
+                            <thead>
+                                <tr>
+                                    <th>Số lượng</th>
+                                    <th>Loại tiền</th>
+                                    <th>Thành tiền (VND)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="fiveHundred" />
+                                    </td>
+                                    <td>500.000</td>
+                                    <td><label id="lblbkt-fiveHundred">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="twoHundred" />
+                                    </td>
+                                    <td>200.000</td>
+                                    <td><label id="lblbkt-twoHundred">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="oneHundred" />
+                                    </td>
+                                    <td>100.000</td>
+                                    <td><label id="lblbkt-oneHundred">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="fifty" />
+                                    </td>
+                                    <td>50.000</td>
+                                    <td><label id="lblbkt-fifty">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="twenty" />
+                                    </td>
+                                    <td>20.000</td>
+                                    <td><label id="lblbkt-twenty">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="ten" />
+                                    </td>
+                                    <td>10.000</td>
+                                    <td><label id="lblbkt-ten">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="five" />
+                                    </td>
+                                    <td>5.000</td>
+                                    <td><label id="lblbkt-five">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="two" />
+                                    </td>
+                                    <td>2.000</td>
+                                    <td><label id="lblbkt-two">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="one" />
+                                    </td>
+                                    <td>1.000</td>
+                                    <td><label id="lblbkt-one">0</label></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="number" name="half" />
+                                    </td>
+                                    <td>500</td>
+                                    <td><label id="lblbkt-half">0</label></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <h4>Tiền Việt Nam</h4>
-                    <table class="table" id="tmTable">
-                        <thead>
-                            <tr>
-                                <th>Số lượng</th>
-                                <th>Loại tiền</th>
-                                <th>Thành tiền (VND)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input type="number" name="fiveHundred" />
-                                </td>
-                                <td>500.000</td>
-                                <td><label id="lbl-fiveHundred">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="twoHundred" />
-                                </td>
-                                <td>200.000</td>
-                                <td><label id="lbl-twoHundred">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="oneHundred" />
-                                </td>
-                                <td>100.000</td>
-                                <td><label id="lbl-oneHundred">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="fifty" />
-                                </td>
-                                <td>50.000</td>
-                                <td><label id="lbl-fifty">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="twenty" />
-                                </td>
-                                <td>20.000</td>
-                                <td><label id="lbl-twenty">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="ten" />
-                                </td>
-                                <td>10.000</td>
-                                <td><label id="lbl-ten">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="five" />
-                                </td>
-                                <td>5.000</td>
-                                <td><label id="lbl-five">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="two" />
-                                </td>
-                                <td>2.000</td>
-                                <td><label id="lbl-two">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="one" />
-                                </td>
-                                <td>1.000</td>
-                                <td><label id="lbl-one">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="number" name="half" />
-                                </td>
-                                <td>500</td>
-                                <td><label id="lbl-half">0</label></td>
-                            </tr>
-                            <tr>
-                                <td>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-lg-9">
                                     <b>Tổng tiền</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblTotalNumberPCCaculator">0</label></b></td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Số trên báo cáo kết ca</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblNumberPCCaculator">0</label></b></td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Số trên báo cáo viết tay</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><label></label></td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Số nộp thực tế</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblNumberCashierCaculator">0</label></b></td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <b>Chênh lệch (Thừa / Thiếu)</b>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                    <td><b><label id="lblNumberDifferentCaculator">0</label></b></td>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <b><label id="lblbktTotalNumberPCCaculator">0</label></b>
+                                </div>
+                            </div>
 
-                <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <b>Chênh lệch (Thừa / Thiếu)</b>
+                                </div>
+                                <div class="col-lg-3">
+                                    <b><label class="text-danger" id="lblbktNumberDifferentCaculator">0</label></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,7 +389,7 @@
     <script type="text/javascript">
         $(function() {
             // Tiền mặt
-            $('#tmTable :input').on('focusout', function(e) {
+            $('#tmTable :input').on('change', function(e) {
                 nameInput = $(this).attr("name");
                 nameLabel = "#lbl-" + nameInput;
                 number = $(this).val();
@@ -244,10 +404,32 @@
                 });
                 $('#lblTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                 $('#lblNumberCashierCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                // Chênh lệch
-                numberPCCaculator = parseInt($('#lblNumberPCCaculator').text().replace(/\,/g, ''));
+
+                numberPCCaculator = parseInt($('#lblNumberPCCaculator').text().replace(/\,/g, '') ? $('#lblNumberPCCaculator').text().replace(/\,/g, '') : 0);
                 different = totalMoney - numberPCCaculator
                 $('#lblNumberDifferentCaculator').text(different.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                capNhatTatCa();
+            });
+
+            $('#bktTable :input').on('change', function(e) {
+                nameInput = $(this).attr("name");
+                nameLabel = "#lblbkt-" + nameInput;
+                number = $(this).val();
+                money = calMoney(number, nameInput);
+                $(nameLabel).text(money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                // Sum Total
+                var totalMoney = 0;
+                $("label[id^='lblbkt-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                $('#lblbktTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                numberPCCaculator = parseInt($('#bktKhachDua').val() ? $('#bktKhachDua').val() : 0);
+                different = totalMoney - numberPCCaculator
+                $('#lblbktNumberDifferentCaculator').text(different.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
             });
 
             function calMoney(current, moneyType) {
@@ -321,16 +503,39 @@
                 );
             });
 
+            $('#btn-addMoreDSCT').on('click', function(e) {
+                var rowCount = $('#dsctTable > tbody > tr').length + 1;
+                $('#dsctTable > tbody:last-child').append(
+                    '<tr>'
+                        + '<td>'
+                            + '<input type="number" name="seri-giay-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="so-chung-tu-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="so-tien-chung-tu-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="phieu-thu-chi-' + rowCount + '"  />'
+                        + '</td>'
+                        + '<td>'
+                            + '<input type="number" name="chung-tu-pt-pc-' + rowCount + '"  />'
+                        + '</td>'
+                    + '</tr>'
+                );
+            });
+
             // Phiếu mua hàng
-            $("#pmhTable").on('focusout', 'input', function() {
+            $("#pmhTable").on('change', 'input', function() {
                 name1 = $(this).attr("name");
-                val1 = $(this).val();
+                val1 = $(this).val() ? $(this).val() : 0;
                 if (name1.split('-')[1] == 'number') {
                     name2 = "pmh-type-" + name1.split('-')[2];
-                    val2 = $('input[name=' + name2 + ']').val();
+                    val2 = $('input[name=' + name2 + ']').val() ? $('input[name=' + name2 + ']').val() : 0;
                 } else {
                     name2 = "pmh-number-" + name1.split('-')[2];
-                    val2 = $('input[name=' + name2 + ']').val();
+                    val2 = $('input[name=' + name2 + ']').val() ? $('input[name=' + name2 + ']').val() : 0;
                 }
                 va = val1 * val2;
                 $('#pmh-' + name1.split('-')[2]).text(va.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
@@ -341,19 +546,75 @@
                     currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
                     totalMoney += parseInt(currentMoneyBeforeFormat);
                 });
+                totalMoney = totalMoney * 1000;
                 $('#pmhTotal').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                capNhatTatCa()
             });
 
             // Cà thẻ
-            $("#ctTable").on('focusout', 'input[name^="ct-money-"]', function() {
+            $("#ctTable").on('change', 'input[name^="ct-money-"]', function() {
                 var totalMoney = 0;
                 $("input[name^='ct-money-']").each(function( index ) {
-                    currentMoneyBeforeFormat = $(this).val();
+                    currentMoneyBeforeFormat = $(this).val() ? $(this).val() : 0;
                     totalMoney += parseInt(currentMoneyBeforeFormat);
                 });
-                console.log(totalMoney);
+                totalMoney = totalMoney * 1000;
                 $('#ctTotal').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                capNhatTatCa()
             });
+
+            // Chứng từ
+            $("#dsctTable").on('change', 'input[name^="so-tien-chung-tu-"]', function() {
+                var totalMoney = 0;
+                $("input[name^='so-tien-chung-tu-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).val() ? $(this).val() : 0;
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                totalMoney = totalMoney * 1000;
+                $('#dsctTotalChungTu').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                capNhatTatCa()
+            });
+
+            $("#dsctTable").on('change', 'input[name^="phieu-thu-chi-"]', function() {
+                var totalMoney = 0;
+                $("input[name^='phieu-thu-chi-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).val() ? $(this).val() : 0;
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                totalMoney = totalMoney * 1000;
+                $('#dsctTotalThuChi').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                capNhatTatCa()
+            });
+
+            function capNhatTatCa() {
+                // Chênh lệch
+                var d180 = parseInt($('#dsctTotalChungTu').text().replace(/\,/g, '')) ? parseInt($('#dsctTotalChungTu').text().replace(/\,/g, '')) : 0;
+                var f180 = parseInt($('#dsctTotalThuChi').text().replace(/\,/g, '')) ? parseInt($('#dsctTotalThuChi').text().replace(/\,/g, '')) : 0;
+                var c15 = parseInt($('#pmhTotal').text().replace(/\,/g, '')) ? parseInt($('#pmhTotal').text().replace(/\,/g, '')) : 0;
+                var f28 = parseInt($('#ctTotal').text().replace(/\,/g, '')) ? parseInt($('#ctTotal').text().replace(/\,/g, '')) : 0;
+
+                var quangTinh = d180 + f180 - c15 - f28;
+
+                $('#lblNumberPCCaculator').text(quangTinh.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+
+                // Sum Total
+                var totalMoney = 0;
+                $("label[id^='lbl-']").each(function( index ) {
+                    currentMoneyBeforeFormat = $(this).text().replace(/\,/g, '');
+                    totalMoney += parseInt(currentMoneyBeforeFormat);
+                });
+                $('#lblTotalNumberPCCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                $('#lblNumberCashierCaculator').text(totalMoney.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+                numberPCCaculator = parseInt($('#lblNumberPCCaculator').text().replace(/\,/g, ''));
+                different = totalMoney - numberPCCaculator
+                $('#lblNumberDifferentCaculator').text(different.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+            }
         });
     </script>
 </html>
