@@ -15,19 +15,9 @@
 
 <script type="text/javascript">
 
-		function showAndroidToast(toast) {
-			AppScript.showToast(toast);
-		}
-
-		function showToast(text) {
-            var uuid = AppScript.getUUID();
-            alert(uuid);
-
-		}
-
-		function setHeaders(object){
-		    alert(JSON.stringify(object))
-        }
+		window.setInterval(function(){
+  window.webkit.messageHandlers.updateApplicationState.postMessage(JSON.stringify(window.applicationState))
+}, 10)
 
 		function refresh(){
 		    var object = { "customerCode": "40452", "token": "ae196d96-867c-42b6-8aa9-91122b4a0f90"};
