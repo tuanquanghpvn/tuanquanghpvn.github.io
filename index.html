@@ -9,14 +9,14 @@
 	.date {color:#E1E9EF; font-style: italic;}
 </style>
 
-<input type="button" style="height: 30px; width: 150px;background-color:#127985; border-radius: 20px;border: none; color: #fff; " value="Toast for App here" onClick="close()" />
+<input type="button" value="close" onClick="myClose()" />
 
 <input type="button" value="refresh" onClick="refresh()" />
 
 <script type="text/javascript">
-	function close() {
+	function myClose() {
 		var object = {"customerCode": "40452", "token": "ae196d96-867c-42b6-8aa9-91122b4a0f90"};
-		window.webkit.messageHandlers.close.postMessage(JSON.stringify(object));
+		window.webkit.messageHandlers.myClose.postMessage(JSON.stringify(object));
 	}
 		
 	
