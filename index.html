@@ -14,11 +14,15 @@
 <input type="button" value="refresh" onClick="refresh()" />
 
 <script type="text/javascript">
+	function close() {
+		window.webkit.messageHandlers.close.postMessage();
+	}
+		
+	
 		function refresh(){
 		    var object = { "customerCode": "40452", "token": "ae196d96-867c-42b6-8aa9-91122b4a0f90"};
 			console.log(object);
-// 		    AppScript.refresh(JSON.stringify(object));
-        		window.webkit.messageHandlers.refreshToken.postMessage(JSON.stringify(object));
+        		window.webkit.messageHandlers.refresh.postMessage(JSON.stringify(object));
 		}
 	</script>
 
