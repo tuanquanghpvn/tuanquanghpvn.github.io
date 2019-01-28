@@ -15,7 +15,8 @@
 
 <script type="text/javascript">
 	function close() {
-		window.webkit.messageHandlers.close.postMessage();
+		var object = {"customerCode": "40452", "token": "ae196d96-867c-42b6-8aa9-91122b4a0f90"};
+		window.webkit.messageHandlers.close.postMessage(JSON.stringify(object));
 	}
 		
 	
